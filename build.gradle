@@ -28,7 +28,8 @@ dependencies
 
 install.repositories.mavenInstaller.pom.whenConfigured
 {
-	pom -> pom.dependencies.removeAll { it.scope == "compile" }
+//	pom -> pom.dependencies.removeAll { it.scope == "compile" }
+	pom -> pom.dependencies.removeAll { it.artifactId == 'android' }
 }
 
 //task(install, dependsOn: build) <<
