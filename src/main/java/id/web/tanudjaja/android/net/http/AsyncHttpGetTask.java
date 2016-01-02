@@ -44,7 +44,7 @@ public class AsyncHttpGetTask extends AsyncHttpTask {
 
         try
 		{
-            con = NetUtils.prepareHttpGetL(mHttpRequest.getUrl(),
+            con = HttpConnectionFactory.setupGet(mHttpRequest.getUrl(),
                     mConnectTimeout, mReadTimeout,
                     mHttpRequest.getAdditionalHeaders());
         }

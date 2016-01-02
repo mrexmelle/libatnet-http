@@ -49,7 +49,7 @@ public class AsyncHttpPostTask extends AsyncHttpTask
 		
 		try
 		{
-			con=NetUtils.prepareHttpPostL(mHttpRequest.getUrl(),
+			con=HttpConnectionFactory.setupPost(mHttpRequest.getUrl(),
 				mConnectTimeout, mReadTimeout,
 				mHttpRequest.getAdditionalHeaders());
 		}

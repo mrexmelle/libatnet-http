@@ -9,7 +9,7 @@ final String androidVer=22
 final String androidJarPath=androidHome+"/platforms/android-"+androidVer
 
 archivesBaseName = 'libatnet-http'
-version = '1.0.0'
+version = '1.1.0'
 group = 'id.web.tanudjaja.android'
 
 repositories
@@ -22,7 +22,7 @@ repositories
 dependencies
 {
 	compile name: 'android'
-	compile 'id.web.tanudjaja.android:libtanudjaja-android-common:1.0.2'
+	compile 'id.web.tanudjaja.android:libtanudjaja-android-common:1.1.0'
 	testCompile 'junit:junit:4.12'
 }
 
