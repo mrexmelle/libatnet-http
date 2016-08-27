@@ -24,7 +24,7 @@ public class HttpConnectionFactory
 	 * @param	aUrl The URL to which a connection is established.
 	 * @throws	MalformedURLException The specified <u>aUrl</u> is invalid.
 	 * @throws	IOException Cannot establish connection to the specified <u>aUrl</u>.
-	 * @return	URLConnection A URLConnection class that stores information about the connection.
+	 * @return	HttpURLConnection A URLConnection class that stores information about the connection.
 	 */
 	public static HttpURLConnection openConnectionL(String aUrl)
 		throws MalformedURLException, IOException
@@ -49,6 +49,28 @@ public class HttpConnectionFactory
 		{
 			throw e;
 		}
+	}
+    
+    /**
+	 * Adds header fields to <u>aConnection</u>.
+	 * @since	1.1.0
+	 * @param	aConnection The connection to which the header fields are appended.
+	 * @param	aHeaderFields A map of header fields to be appended.
+	 * @return	HttpURLConnection A pointer to aConnection.
+	 */
+	public static HttpURLConnection addHeaderFields(
+		HttpURLConnection aConnection,
+		Map<String, String> aHeaderFields)
+	{
+		if (aHeaderFields != null)
+		{
+			for (Map.Entry<String, String> field : aHeaderFields.entrySet())
+			{
+				aConnection.setRequestProperty(field.getKey(), field.getValue());
+			}
+		}
+		
+		return aConnection;
 	}
 	
 	/**
@@ -105,7 +127,7 @@ public class HttpConnectionFactory
 		con.setDoOutput(false);
 		
 		// add additional header fields
-		con=(HttpURLConnection)(NetUtils.addHeaderFields(con, aHeaderFields));
+		con=addHeaderFields(con, aHeaderFields);
 		
 		return con;
 	}
@@ -162,7 +184,7 @@ public class HttpConnectionFactory
 		con.setDoOutput(true);
 		
 		// add additional header fields
-		con=(HttpURLConnection)(NetUtils.addHeaderFields(con, aHeaderFields));
+		con=addHeaderFields(con, aHeaderFields);
 		
 		return con;
 	}
