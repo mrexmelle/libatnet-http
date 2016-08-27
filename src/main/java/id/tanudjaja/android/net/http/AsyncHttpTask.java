@@ -1,5 +1,5 @@
 
-package id.web.tanudjaja.android.net.http;
+package id.tanudjaja.android.net.http;
 
 // Android's imports
 import android.annotation.TargetApi;

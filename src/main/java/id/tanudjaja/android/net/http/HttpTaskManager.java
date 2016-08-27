@@ -1,5 +1,5 @@
 
-package id.web.tanudjaja.android.net.http;
+package id.tanudjaja.android.net.http;
 
 import android.util.Log;
 import id.web.tanudjaja.android.common.port.errno;

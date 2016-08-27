@@ -1,5 +1,5 @@
 
-package id.web.tanudjaja.android.net.http;
+package id.tanudjaja.android.net.http;
 
 // Java's imports
 import java.io.IOException;

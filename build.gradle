@@ -5,12 +5,12 @@ sourceCompatibility = 1.7
 targetCompatibility = 1.7
 
 final String androidHome=System.getenv("ANDROID_HOME")
-final String androidVer=22
+final String androidVer=24
 final String androidJarPath=androidHome+"/platforms/android-"+androidVer
 
 archivesBaseName = 'libatnet-http'
 version = '1.1.0'
-group = 'id.web.tanudjaja.android'
+group = 'id.tanudjaja.android'
 
 repositories
 {
@@ -31,43 +31,6 @@ install.repositories.mavenInstaller.pom.whenConfigured
 //	pom -> pom.dependencies.removeAll { it.scope == "compile" }
 	pom -> pom.dependencies.removeAll { it.artifactId == 'android' }
 }
-
-//task(install, dependsOn: build) <<
-//{
-//	final String output=libsDir.getAbsolutePath() + '/' + archivesBaseName + '-' + version + '.jar'
-//	File f = file(output)
-//	if(f.exists())
-//	{
-//		copy
-//		{
-//			from output
-//			into androidLibRepo
-//		}
-//		println 'Installation success.'
-//	}
-//	else
-//	{
-//		println 'Installation failed. File ' + output + ' not found.'
-//	}
-//}
-
-//configure(install)
-//{
-//	group = 'Install'
-//	description = 'Installs the jar to ' + androidLibRepo
-//}
-
-//task(uninstall) <<
-//{
-//	final String installedFile=androidLibRepo + '/' + archivesBaseName + '-' + version + '.jar'
-//	delete installedFile
-//}
-
-//configure(uninstall)
-//{
-//	group = 'Install'
-//	description = 'Removes the installed jar from ' + androidLibRepo
-//}
 
 task (distclean, dependsOn: clean) <<
 {

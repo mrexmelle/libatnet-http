@@ -1,5 +1,5 @@
 
-package id.web.tanudjaja.android.net.http;
+package id.tanudjaja.android.net.http;
 
 import java.util.HashMap;
 import java.util.Map;
