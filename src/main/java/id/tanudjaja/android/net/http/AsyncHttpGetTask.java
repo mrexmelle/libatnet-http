@@ -1,7 +1,6 @@
 
 package id.tanudjaja.android.net.http;
 
-import id.web.tanudjaja.android.common.NetUtils;
 import id.web.tanudjaja.android.common.port.errno;
 import id.web.tanudjaja.android.common.port.stdc;
 

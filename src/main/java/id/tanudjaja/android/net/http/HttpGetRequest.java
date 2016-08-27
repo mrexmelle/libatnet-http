@@ -1,8 +1,6 @@
 
 package id.tanudjaja.android.net.http;
 
-import id.web.tanudjaja.android.common.NetUtils;
-
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Map;

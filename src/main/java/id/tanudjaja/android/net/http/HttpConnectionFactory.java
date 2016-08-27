@@ -3,9 +3,10 @@ package id.tanudjaja.android.net.http;
 
 // Java's imports
 import java.io.IOException;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
-import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.Map;
 
 // Android's imports
@@ -16,6 +17,39 @@ import id.web.tanudjaja.android.common.NetUtils;
 public class HttpConnectionFactory
 {
 	private final static String TAG="HttpConnectionFactory";
+    
+    /**
+	 * Opens connection to specified <u>aUrl</u>.
+	 * @since	1.1.0
+	 * @param	aUrl The URL to which a connection is established.
+	 * @throws	MalformedURLException The specified <u>aUrl</u> is invalid.
+	 * @throws	IOException Cannot establish connection to the specified <u>aUrl</u>.
+	 * @return	URLConnection A URLConnection class that stores information about the connection.
+	 */
+	public static HttpURLConnection openConnectionL(String aUrl)
+		throws MalformedURLException, IOException
+	{
+		// initiate URL
+		URL url=null;
+		try
+		{
+			url=new URL(aUrl);
+		}
+		catch (MalformedURLException e)
+		{
+			throw e;
+		}
+		
+		// open the connection
+		try
+		{
+			return (HttpURLConnection)(url.openConnection());
+		}
+		catch (IOException e)
+		{
+			throw e;
+		}
+	}
 	
 	/**
 	 * Prepares a connection to do a GET request to <u>aUrl</u> with specified parameters.
@@ -40,7 +74,7 @@ public class HttpConnectionFactory
 		
 		try
 		{
-			con=(HttpURLConnection)(NetUtils.openConnectionL(aUrl));
+			con=openConnectionL(aUrl);
 		}
 		catch(MalformedURLException e)
 		{
@@ -97,7 +131,7 @@ public class HttpConnectionFactory
 		
 		try
 		{
-			con=(HttpURLConnection)(NetUtils.openConnectionL(aUrl));
+			con=openConnectionL(aUrl);
 		}
 		catch (MalformedURLException e)
 		{
@@ -115,7 +149,7 @@ public class HttpConnectionFactory
 		
 		//		Log.d(TAG, "content-length: " + con.getContentLength());
 		
-		// set to GET
+		// set to POST
 		try
 		{
 			con.setRequestMethod("POST");
